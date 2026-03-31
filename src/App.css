@@ -1,0 +1,214 @@
+/* BigBag Doseerstation - App Styles */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.app {
+  min-height: 100vh;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* Header */
+.header {
+  background: #1e293b;
+  border-bottom: 1px solid #334155;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-left { display: flex; align-items: center; gap: 1rem; }
+.logo { font-size: 2rem; }
+.header h1 { font-size: 1.4rem; font-weight: 700; color: #f1f5f9; }
+.subtitle { font-size: 0.75rem; color: #94a3b8; }
+.header-right { display: flex; align-items: center; gap: 1.5rem; }
+.status-badge {
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: white;
+}
+.dose-counter { text-align: right; }
+.count-label { display: block; font-size: 0.7rem; color: #94a3b8; }
+.count-value { font-size: 1.8rem; font-weight: 800; color: #f1f5f9; }
+
+/* Main layout */
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Panels */
+.weight-panel, .config-panel, .log-panel {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+.weight-panel { grid-column: 1; }
+.config-panel { grid-column: 2; }
+.log-panel { grid-column: 1 / -1; }
+
+/* Weight Display */
+.weight-display {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.weight-label { font-size: 0.85rem; color: #94a3b8; }
+.weight-value {
+  font-size: 3.5rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: #f1f5f9;
+  margin-left: auto;
+}
+.weight-unit { font-size: 1.5rem; color: #94a3b8; align-self: flex-end; padding-bottom: 0.5rem; }
+.target-display {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 1rem;
+}
+.target-display strong { color: #f1f5f9; }
+
+/* Progress */
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.progress-bar {
+  flex: 1;
+  height: 1.5rem;
+  background: #0f172a;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid #334155;
+}
+.progress-fill {
+  height: 100%;
+  border-radius: 1rem;
+  transition: width 0.4s ease, background-color 0.3s;
+}
+.progress-label { font-size: 0.9rem; font-weight: 700; width: 3rem; text-align: right; }
+
+/* Controls */
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+.btn {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  letter-spacing: 0.05em;
+}
+.btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.btn-primary { background: #22c55e; color: #052e16; }
+.btn-primary:not(:disabled):hover { background: #16a34a; }
+.btn-warning { background: #f59e0b; color: #1c1917; }
+.btn-warning:not(:disabled):hover { background: #d97706; }
+.btn-danger { background: #ef4444; color: white; }
+.btn-danger:not(:disabled):hover { background: #dc2626; }
+.btn-secondary { background: #475569; color: #f1f5f9; }
+.btn-secondary:hover { background: #64748b; }
+
+/* Config */
+.config-panel h2, .log-panel h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.25rem;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+.form-grid input, .form-grid select {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+  color: #f1f5f9;
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+}
+.form-grid input:focus, .form-grid select:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+.form-grid input:disabled, .form-grid select:disabled {
+  opacity: 0.5;
+}
+
+/* Log */
+.log-count { font-size: 0.8rem; color: #475569; }
+.log-empty {
+  text-align: center;
+  color: #475569;
+  padding: 2rem;
+  border: 1px dashed #334155;
+  border-radius: 0.5rem;
+}
+.log-table-wrapper { overflow-x: auto; }
+.log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+.log-table th {
+  text-align: left;
+  padding: 0.6rem 1rem;
+  color: #64748b;
+  font-weight: 600;
+  border-bottom: 1px solid #334155;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+.log-table td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid #1e293b;
+}
+.row-ok { background: rgba(34, 197, 94, 0.04); }
+.row-nok { background: rgba(239, 68, 68, 0.04); }
+.badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.badge-ok { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+.badge-nok { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+
+@media (max-width: 768px) {
+  .main { grid-template-columns: 1fr; }
+  .weight-panel, .config-panel, .log-panel { grid-column: 1; }
+  .header { flex-direction: column; gap: 1rem; text-align: center; }
+}
